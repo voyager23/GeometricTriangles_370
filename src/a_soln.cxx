@@ -1,5 +1,5 @@
 /*
- * perimeter.cxx
+ * a_soln.cxx
  * 
  * Copyright 2023 mike <mike@pop-os>
  * 
@@ -33,30 +33,29 @@ using namespace std;
 int main(int argc, char **argv)
 {
 	int n,i,a,b,c,z;
+	int g_triangles = 0, count;	// Global count, local count
+	// Initialise variables
 	bool full_check = false;
 	const int max_perim = 1000;
-	
-	n = 11;
-	do {
-		// find limit for n.
-		z = (int)floor(n * std::numbers::phi_v<double>);
-		cout << setw(6) << n;
-		// calc a,b,c for the limit value
-		// common_ratio is z/n
-		a = n*n;
-		b = a*z/n;
-		c = b*z/n;
-		auto t = make_tuple(a,b,c);
-		auto p = a+b+c;
-		cout << setw(6) << z << setw(6) << a;
-		cout << setw(6) << b;
-		cout << setw(6) << c;
-		cout << setw(6) << p << endl;
-		if(p > max_perim) full_check = true;
-		++n;
-	} while(!(full_check));
-	
-	
+	n = 2;	
+	do{
+ 		//~ calc limit and hence a,b,c & perimeter at n+limit
+ 		//~ if perimeter <= max_perimeter {
+			//~ count = limit - n
+			//~ g_triangles += count
+		//~ } else {
+			//~ count = 0	// count valid triangles
+			//~ i = 1
+			//~ do{
+				//~ a = n*n
+				//~ b = a*(n+i)/n
+				//~ c = b*(n+i)/n
+				//~ if (a+b+c)<=max_perim
+					//~ count += 1
+			//~ } while((a+b+c)<=max_perim)
+			//~ g_triangles += count
+		//~ }
+	} while count > 0
 	return 0;
 }
 
