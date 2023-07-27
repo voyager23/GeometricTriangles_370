@@ -35,28 +35,39 @@ int main(int argc, char **argv)
 	int n,i,a,b,c,z;
 	int g_triangles = 0, count;	// Global count, local count
 	// Initialise variables
-	bool full_check = false;
+	// bool full_check = false;
 	const int max_perim = 1000;
-	n = 2;
-	
+	n = 2;	
 	do{
  		//~ calc limit and hence a,b,c & perimeter at n+limit
- 		//~ if perimeter <= max_perimeter {
-			//~ count = limit - n
-			//~ g_triangles += count
-		//~ } else {
-			//~ count = 0	// count valid triangles
-			//~ i = 1
-			//~ do{
-				//~ a = n*n
-				//~ b = a*(n+i)/n
-				//~ c = b*(n+i)/n
-				//~ if (a+b+c)<=max_perim
-					//~ count += 1
-			//~ } while((a+b+c)<=max_perim)
-			//~ g_triangles += count
-		//~ }
-	} while count > 0
+		// find limit for n.
+		z = (int)floor(n * std::numbers::phi_v<double>);
+		// cout << setw(6) << n << endl;
+		// calc a,b,c for the limit value
+		// common_ratio is z/n
+		a = n*n;
+		b = a*z/n;
+		c = b*z/n;
+		if ((a+b+c)<=max_perim){
+			count = z - n;
+			g_triangles += count;
+		} else {
+			count = 0;	// count valid triangles
+			i = 1;
+			do{
+				a = n*n;
+				b = a*(n+i)/n;
+				c = b*(n+i)/n;
+				if ((a+b+c) <= max_perim)
+					count += 1;
+				i += 1;
+			} while((a+b+c)<=max_perim);
+			g_triangles += count;			
+		} // else...
+		n += 1;
+		cout << setw(6) << n << g_triangles << endl;
+	} while (count > 0);
+	cout << "Max perimeter:" << max_perim << " G_Triangles:" << g_triangles << endl;
 	return 0;
 }
 
