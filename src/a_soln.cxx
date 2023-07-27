@@ -37,7 +37,8 @@ int main(int argc, char **argv)
 	// Initialise variables
 	bool full_check = false;
 	const int max_perim = 1000;
-	n = 2;	
+	n = 2;
+	
 	do{
  		//~ calc limit and hence a,b,c & perimeter at n+limit
  		//~ if perimeter <= max_perimeter {
