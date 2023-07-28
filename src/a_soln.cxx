@@ -32,17 +32,18 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
-	int n,i,a,b,c,z;
-	int g_triangles = 0, count;	// Global count, local count
+	const long Foo = 25000000000000;
+	long n,i,a,b,c,z;
+	long g_triangles = 0, count;	// Global count, local count
 	// Initialise variables
 	// bool full_check = false;
-	const int max_perim = 1000;
+	const long max_perim = 1000;
 	n = 2;	
 	do{
  		//~ calc limit and hence a,b,c & perimeter at n+limit
 		// find limit for n.
-		z = (int)floor(n * std::numbers::phi_v<double>);
-		cout << setw(6) << n << " ";
+		z = (long)floor(n * std::numbers::phi_v<double>);
+		cout << setw(15) << n << " ";
 		// calc a,b,c for the limit value
 		// common_ratio is z/n
 		a = n*n;
@@ -65,7 +66,7 @@ int main(int argc, char **argv)
 			g_triangles += count;			
 		} // else...
 		n += 1;
-		cout << setw(6) << g_triangles << endl;
+		cout << setw(15) << g_triangles << endl;
 	} while (count > 0);
 	cout << "Max perimeter:" << max_perim << " G_Triangles:" << g_triangles << endl;
 	return 0;
