@@ -32,12 +32,12 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
-	const long Foo = 25000000000000;
+	//const long Foo = 25000000000000;
 	long n,i,a,b,c,z;
 	long g_triangles = 0, count;	// Global count, local count
 	// Initialise variables
 	// bool full_check = false;
-	const long max_perim = 1000;
+	const long max_perim = 1687;
 	n = 2;	
 	do{
  		//~ calc limit and hence a,b,c & perimeter at n+limit

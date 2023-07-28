@@ -5,3 +5,6 @@ FLAGS += -g
 
 asoln : a_soln.cxx Makefile
 	g++ a_soln.cxx $(FLAGS) -o ./asoln
+		
+analyse: analyse.cxx Makefile
+	g++ analyse.cxx $(FLAGS) -std=c++20 -o ./an

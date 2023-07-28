@@ -30,8 +30,11 @@ int main(int argc, char **argv)
 {
 	int n,i,a,b,c;
 	
-	for(n = 2; n != 50; ++n) {
+	int g_triangles = 0;
+	
+	for(n = 2; n <= 18 ; ++n) {
 		i = 1;
+		int count = 0;
 		while((n*n - n*i - i*i) > 0){
 			a = n*n;
 			b = a*(n+i)/n;
@@ -40,9 +43,13 @@ int main(int argc, char **argv)
 			std::cout << " a:" << a << " b:" << b << " c:" << c;
 			std::cout << " perim:" << a+b+c << std::endl;
 			i++;
+			g_triangles += 1;
+			count += 1;
 		}
-		std::cout << "limit(n+i):" << floor(n * std::numbers::phi_v<double>) << std::endl;
+		std::cout << "Count: " << count << "G_triangles: " << g_triangles << std::endl;
+		std::cout << "limit(n+i):" << floor(n * std::numbers::phi_v<double>) << std::endl << std::endl;
 	}
+	std::cout << "G_triangles: " << g_triangles << std::endl;
 	return 0;
 }
 
