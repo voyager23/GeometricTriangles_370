@@ -42,7 +42,7 @@ int main(int argc, char **argv)
  		//~ calc limit and hence a,b,c & perimeter at n+limit
 		// find limit for n.
 		z = (int)floor(n * std::numbers::phi_v<double>);
-		// cout << setw(6) << n << endl;
+		cout << setw(6) << n << " ";
 		// calc a,b,c for the limit value
 		// common_ratio is z/n
 		a = n*n;
@@ -65,7 +65,7 @@ int main(int argc, char **argv)
 			g_triangles += count;			
 		} // else...
 		n += 1;
-		cout << setw(6) << n << g_triangles << endl;
+		cout << setw(6) << g_triangles << endl;
 	} while (count > 0);
 	cout << "Max perimeter:" << max_perim << " G_Triangles:" << g_triangles << endl;
 	return 0;

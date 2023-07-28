@@ -1,0 +1,126 @@
+n:2	i:1 a:4 b:6 c:9 perim:19
+limit(n+i):3
+n:3	i:1 a:9 b:12 c:16 perim:37
+limit(n+i):4
+n:4	i:1 a:16 b:20 c:25 perim:61
+n:4	i:2 a:16 b:24 c:36 perim:76
+limit(n+i):6
+n:5	i:1 a:25 b:30 c:36 perim:91
+n:5	i:2 a:25 b:35 c:49 perim:109
+n:5	i:3 a:25 b:40 c:64 perim:129
+limit(n+i):8
+n:6	i:1 a:36 b:42 c:49 perim:127
+n:6	i:2 a:36 b:48 c:64 perim:148
+n:6	i:3 a:36 b:54 c:81 perim:171
+limit(n+i):9
+n:7	i:1 a:49 b:56 c:64 perim:169
+n:7	i:2 a:49 b:63 c:81 perim:193
+n:7	i:3 a:49 b:70 c:100 perim:219
+n:7	i:4 a:49 b:77 c:121 perim:247
+limit(n+i):11
+n:8	i:1 a:64 b:72 c:81 perim:217
+n:8	i:2 a:64 b:80 c:100 perim:244
+n:8	i:3 a:64 b:88 c:121 perim:273
+n:8	i:4 a:64 b:96 c:144 perim:304
+limit(n+i):12
+n:9	i:1 a:81 b:90 c:100 perim:271
+n:9	i:2 a:81 b:99 c:121 perim:301
+n:9	i:3 a:81 b:108 c:144 perim:333
+n:9	i:4 a:81 b:117 c:169 perim:367
+n:9	i:5 a:81 b:126 c:196 perim:403
+limit(n+i):14
+n:10	i:1 a:100 b:110 c:121 perim:331
+n:10	i:2 a:100 b:120 c:144 perim:364
+n:10	i:3 a:100 b:130 c:169 perim:399
+n:10	i:4 a:100 b:140 c:196 perim:436
+n:10	i:5 a:100 b:150 c:225 perim:475
+n:10	i:6 a:100 b:160 c:256 perim:516
+limit(n+i):16
+n:11	i:1 a:121 b:132 c:144 perim:397
+n:11	i:2 a:121 b:143 c:169 perim:433
+n:11	i:3 a:121 b:154 c:196 perim:471
+n:11	i:4 a:121 b:165 c:225 perim:511
+n:11	i:5 a:121 b:176 c:256 perim:553
+n:11	i:6 a:121 b:187 c:289 perim:597
+limit(n+i):17
+n:12	i:1 a:144 b:156 c:169 perim:469
+n:12	i:2 a:144 b:168 c:196 perim:508
+n:12	i:3 a:144 b:180 c:225 perim:549
+n:12	i:4 a:144 b:192 c:256 perim:592
+n:12	i:5 a:144 b:204 c:289 perim:637
+n:12	i:6 a:144 b:216 c:324 perim:684
+n:12	i:7 a:144 b:228 c:361 perim:733
+limit(n+i):19
+n:13	i:1 a:169 b:182 c:196 perim:547
+n:13	i:2 a:169 b:195 c:225 perim:589
+n:13	i:3 a:169 b:208 c:256 perim:633
+n:13	i:4 a:169 b:221 c:289 perim:679
+n:13	i:5 a:169 b:234 c:324 perim:727
+n:13	i:6 a:169 b:247 c:361 perim:777
+n:13	i:7 a:169 b:260 c:400 perim:829
+n:13	i:8 a:169 b:273 c:441 perim:883
+limit(n+i):21
+n:14	i:1 a:196 b:210 c:225 perim:631
+n:14	i:2 a:196 b:224 c:256 perim:676
+n:14	i:3 a:196 b:238 c:289 perim:723
+n:14	i:4 a:196 b:252 c:324 perim:772
+n:14	i:5 a:196 b:266 c:361 perim:823
+n:14	i:6 a:196 b:280 c:400 perim:876
+n:14	i:7 a:196 b:294 c:441 perim:931
+n:14	i:8 a:196 b:308 c:484 perim:988
+limit(n+i):22
+n:15	i:1 a:225 b:240 c:256 perim:721
+n:15	i:2 a:225 b:255 c:289 perim:769
+n:15	i:3 a:225 b:270 c:324 perim:819
+n:15	i:4 a:225 b:285 c:361 perim:871
+n:15	i:5 a:225 b:300 c:400 perim:925
+n:15	i:6 a:225 b:315 c:441 perim:981
+n:15	i:7 a:225 b:330 c:484 perim:1039
+n:15	i:8 a:225 b:345 c:529 perim:1099
+n:15	i:9 a:225 b:360 c:576 perim:1161
+limit(n+i):24
+n:16	i:1 a:256 b:272 c:289 perim:817
+n:16	i:2 a:256 b:288 c:324 perim:868
+n:16	i:3 a:256 b:304 c:361 perim:921
+n:16	i:4 a:256 b:320 c:400 perim:976
+n:16	i:5 a:256 b:336 c:441 perim:1033
+n:16	i:6 a:256 b:352 c:484 perim:1092
+n:16	i:7 a:256 b:368 c:529 perim:1153
+n:16	i:8 a:256 b:384 c:576 perim:1216
+n:16	i:9 a:256 b:400 c:625 perim:1281
+limit(n+i):25
+n:17	i:1 a:289 b:306 c:324 perim:919
+n:17	i:2 a:289 b:323 c:361 perim:973
+n:17	i:3 a:289 b:340 c:400 perim:1029
+n:17	i:4 a:289 b:357 c:441 perim:1087
+n:17	i:5 a:289 b:374 c:484 perim:1147
+n:17	i:6 a:289 b:391 c:529 perim:1209
+n:17	i:7 a:289 b:408 c:576 perim:1273
+n:17	i:8 a:289 b:425 c:625 perim:1339
+n:17	i:9 a:289 b:442 c:676 perim:1407
+n:17	i:10 a:289 b:459 c:729 perim:1477
+limit(n+i):27
+n:18	i:1 a:324 b:342 c:361 perim:1027
+n:18	i:2 a:324 b:360 c:400 perim:1084
+n:18	i:3 a:324 b:378 c:441 perim:1143
+n:18	i:4 a:324 b:396 c:484 perim:1204
+n:18	i:5 a:324 b:414 c:529 perim:1267
+n:18	i:6 a:324 b:432 c:576 perim:1332
+n:18	i:7 a:324 b:450 c:625 perim:1399
+n:18	i:8 a:324 b:468 c:676 perim:1468
+n:18	i:9 a:324 b:486 c:729 perim:1539
+n:18	i:10 a:324 b:504 c:784 perim:1612
+n:18	i:11 a:324 b:522 c:841 perim:1687
+limit(n+i):29
+n:19	i:1 a:361 b:380 c:400 perim:1141
+n:19	i:2 a:361 b:399 c:441 perim:1201
+n:19	i:3 a:361 b:418 c:484 perim:1263
+n:19	i:4 a:361 b:437 c:529 perim:1327
+n:19	i:5 a:361 b:456 c:576 perim:1393
+n:19	i:6 a:361 b:475 c:625 perim:1461
+n:19	i:7 a:361 b:494 c:676 perim:1531
+n:19	i:8 a:361 b:513 c:729 perim:1603
+n:19	i:9 a:361 b:532 c:784 perim:1677
+n:19	i:10 a:361 b:551 c:841 perim:1753
+n:19	i:11 a:361 b:570 c:900 perim:1831
+limit(n+i):30

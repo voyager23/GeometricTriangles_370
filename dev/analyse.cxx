@@ -30,7 +30,7 @@ int main(int argc, char **argv)
 {
 	int n,i,a,b,c;
 	
-	for(n = 11; n != 20; ++n) {
+	for(n = 2; n != 20; ++n) {
 		i = 1;
 		while((n*n - n*i - i*i) > 0){
 			a = n*n;
