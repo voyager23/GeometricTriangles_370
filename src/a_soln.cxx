@@ -37,8 +37,8 @@ int main(int argc, char **argv)
 	long g_triangles = 0, count;	// Global count, local count
 	// Initialise variables
 	// bool full_check = false;
-	const long max_perim = 1687;
-	n = 2;	
+	const long max_perim = 1000000;
+	n = 12;	
 	do{
  		//~ calc limit and hence a,b,c & perimeter at n+limit
 		// find limit for n.

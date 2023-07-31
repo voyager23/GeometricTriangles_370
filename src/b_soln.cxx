@@ -1,5 +1,5 @@
 /*
- * analyse.cxx
+ * a_soln.cxx
  * 
  * Copyright 2023 mike <mike@pop-os>
  * 
@@ -23,33 +23,29 @@
 
 
 #include <iostream>
+#include <iomanip>
 #include <numbers>
 #include <cmath>
+#include <tuple>
+
+using namespace std;
 
 int main(int argc, char **argv)
 {
-	int n,i,a,b,c;
-	
-	int g_triangles = 0;
-	
-	for(n = 12; n <= 12 ; ++n) {
-		i = 1;
-		int count = 0;
-		while((n*n - n*i - i*i) > 0){	// ensure a + b > c
-			a = n*n;
-			b = a*(n+i)/n;
-			c = b*(n+i)/n;	
-			std::cout << "n:" << n << "	i:" << i;
-			std::cout << " a:" << a << " b:" << b << " c:" << c;
-			std::cout << " perim:" << a+b+c << std::endl;
-			i++;
-			g_triangles += 1;
-			count += 1;
+	//const long Foo = 25000000000000;
+	long seed, max_seed = 548;
+	long limit,m,i, perim;
+	const double phi = 1.61803398874989;
+	long g_triangles = 0, count;	// Global count, local count
+	// Initialise variables
+	const long max_perim = 1000000;
+	for(seed = 12; seed != 13; ++seed) {
+		limit = (long)std::floor(seed * phi);
+		for(i = 1; i <= limit; ++i) {
+			a = seed * seed;
+			b = seed * (seed + i);
+			c = (seed + i) * (seed + i);
+			perim = (a + b + c);
 		}
-		std::cout << "Count: " << count << " G_triangles: " << g_triangles << std::endl;
-		std::cout << "limit(n+i):" << floor(n * std::numbers::phi_v<double>) << std::endl << std::endl;
-	}
-	std::cout << "G_triangles: " << g_triangles << std::endl;
-	return 0;
+	}	
 }
-

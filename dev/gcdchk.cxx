@@ -1,5 +1,5 @@
 /*
- * analyse.cxx
+ * gcdchk.cxx
  * 
  * Copyright 2023 mike <mike@pop-os>
  * 
@@ -23,33 +23,18 @@
 
 
 #include <iostream>
-#include <numbers>
-#include <cmath>
+#include <numeric>
 
 int main(int argc, char **argv)
 {
-	int n,i,a,b,c;
-	
-	int g_triangles = 0;
-	
-	for(n = 12; n <= 12 ; ++n) {
-		i = 1;
-		int count = 0;
-		while((n*n - n*i - i*i) > 0){	// ensure a + b > c
-			a = n*n;
-			b = a*(n+i)/n;
-			c = b*(n+i)/n;	
-			std::cout << "n:" << n << "	i:" << i;
-			std::cout << " a:" << a << " b:" << b << " c:" << c;
-			std::cout << " perim:" << a+b+c << std::endl;
-			i++;
-			g_triangles += 1;
-			count += 1;
+	int a,b,c;
+	for(a = 100; a != 200; ++a){
+		for(b = a +1; b != 200; ++b){
+			if (std::gcd(a,b) > 1){
+				std::cout<<"a:"<<a<<" b:"<<b<<" gcd:"<<std::gcd(a,b)<<std::endl;
+			}
 		}
-		std::cout << "Count: " << count << " G_triangles: " << g_triangles << std::endl;
-		std::cout << "limit(n+i):" << floor(n * std::numbers::phi_v<double>) << std::endl << std::endl;
 	}
-	std::cout << "G_triangles: " << g_triangles << std::endl;
 	return 0;
 }
 
