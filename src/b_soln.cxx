@@ -17,21 +17,27 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301, USA.
- * 
- * 
+ * Answer:  1491274
+ * Solution: 861805
  */
-
 
 #include <iostream>
 #include <iomanip>
 #include <numbers>
 #include <cmath>
 #include <tuple>
+#include <map>
+#include <vector>
+#include <set>
 
 using namespace std;
+typedef tuple<long,long,long> tup3;		// container for a,b,c
+typedef map<long,vector<tup3>> map_t;	// map{perimeter,(a,b,c)}
+
 
 int main(int argc, char **argv)
 {
+	set<tup3> dups;
 	//const long Foo = 25000000000000;
 	long seed, max_seed = 548;
 	long limit,m,i,a,b,c,perim;
@@ -39,6 +45,7 @@ int main(int argc, char **argv)
 	long g_triangles = 0, count;	// Global count, local count
 	// Initialise variables
 	const long max_perim = 1000000;
+	
 	for(seed = 2; seed != max_seed; ++seed) {
 		limit = (long)std::floor(seed * phi);
 		for(i = 1; i <= limit; ++i) {
@@ -48,8 +55,13 @@ int main(int argc, char **argv)
 			perim = (a + b + c);
 			if(perim <= max_perim) {
 				//std::cout<<setw(8)<<i<<setw(8)<<a<<setw(8)<<b<<setw(8)<<c<<setw(8)<<perim<<std::endl;
-				// This is the base case for this value of i.
-				// Find multiples of the base case for perimeters <= max_perim
+				// This is the base case for the current value of i.
+				// Add to set dups
+				// 		On fail, issue warning
+				auto result = dups.emplace(a,b,c);
+				if(result.second == false){
+					cout<<"Warning collision detected"<<endl;
+				}
 				long count = 1;
 				g_triangles += 1;
 				m = 2;
@@ -58,6 +70,10 @@ int main(int argc, char **argv)
 					if (perim <= max_perim) {
 						g_triangles += 1;
 						m += 1;
+						auto result = dups.emplace(a,b,c);
+						if(result.second == false){
+							cout<<"Warning collision detected"<<endl;
+						}
 					} else {
 						break;
 					}
