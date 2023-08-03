@@ -60,24 +60,26 @@ int main(int argc, char **argv)
 				// 		On fail, issue warning
 				auto result = dups.emplace(a,b,c);
 				if(result.second == false){
-					cout<<"Warning collision detected"<<endl;
+					cout<<"Warning base collision  detected"<<endl;
+					//exit(1);
+				} else {
+					long count = 1;
+					g_triangles += 1;
+					m = 2;
+					do{
+						perim = m * (a+b+c);
+						if (perim <= max_perim) {
+							auto result = dups.emplace(a,b,c);
+							if(result.second == false){
+								cout<<"Warning multiple collision detected"<<endl;
+								//exit(2);
+							} else {
+								g_triangles += 1;
+							}
+							m += 1;
+						} else break;
+					}while(1);
 				}
-				long count = 1;
-				g_triangles += 1;
-				m = 2;
-				do{
-					perim = m * (a+b+c);
-					if (perim <= max_perim) {
-						g_triangles += 1;
-						m += 1;
-						auto result = dups.emplace(a,b,c);
-						if(result.second == false){
-							cout<<"Warning collision detected"<<endl;
-						}
-					} else {
-						break;
-					}
-				}while(1);
 				//std::cout<<"Found a total of "<<count<<" triangles for this config."<<std::endl;
 				//std::cout<<std::endl;				
 			} // if perim
