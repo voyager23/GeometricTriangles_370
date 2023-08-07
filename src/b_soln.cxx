@@ -30,8 +30,10 @@
 #include <vector>
 #include <set>
 
+#include "../inc/toolbox.hxx"
+
 using namespace std;
-typedef tuple<long,long,long> tup3;		// container for a,b,c
+typedef tuple<long,long,long> tup3;		// container for i,a,b,c
 typedef map<long,vector<tup3>> map_t;	// map{perimeter,(a,b,c)}
 
 
@@ -42,7 +44,7 @@ int main(int argc, char **argv)
 	long seed, max_seed = 548;
 	long limit,m,i,a,b,c,perim;
 	const double phi = 1.61803398874989;
-	long g_triangles = 0, count;	// Global count, local count
+	long g_triangles = 0, discard = 0;	// Global count, discard
 	// Initialise variables
 	const long max_perim = 1000000;
 	
@@ -61,6 +63,7 @@ int main(int argc, char **argv)
 				auto result = dups.emplace(a,b,c);
 				if(result.second == false){
 					cout<<"Warning base collision  detected"<<endl;
+					discard += 1;
 					//exit(1);
 				} else {
 					long count = 1;
@@ -72,6 +75,7 @@ int main(int argc, char **argv)
 							auto result = dups.emplace(a,b,c);
 							if(result.second == false){
 								cout<<"Warning multiple collision detected"<<endl;
+								discard += 1; 
 								//exit(2);
 							} else {
 								g_triangles += 1;
@@ -86,4 +90,5 @@ int main(int argc, char **argv)
 		} // for i...
 	} // for seed
 	std::cout<<g_triangles<<std::endl;
+	std::cout<<discard<<std::endl;
 }
