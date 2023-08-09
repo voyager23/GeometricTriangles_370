@@ -18,6 +18,7 @@ int main(int argc, char **argv)
 {
 	// Setup test data
 	const double phi = 1.61803398874989;
+	// n = 4050
 	PrimePower p1(2,1);
 	PrimePower p2(3,4);
 	PrimePower p3(5,2);
@@ -27,15 +28,15 @@ int main(int argc, char **argv)
 	for(auto it = vpp.begin(); it != vpp.end(); ++it) {
 		ulong count = 0;
 		PrimePower pp = *it;
-		ulong denom = pp.first;
-		ulong power = pp.second;
-		do {		
-			limit = (ulong)floorl(denom * phi);
+		ulong denom = pp.first;		// defines the denominator
+		ulong power = pp.second/2;	// integer divide by 2 gives loop count
+		while(power > 0){
+			limit = (ulong)floor(denom * phi);
 			count += limit - denom;
 			denom *= pp.first;
-			power /= 2;	
-		}while(power);
-		cout << count << endl;
+			power /= 2;			
+		}
+		cout << pp.first << "  " << pp.second << " " << count << endl;
 	}
 	return 0;
 }
