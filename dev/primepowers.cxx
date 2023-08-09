@@ -9,11 +9,12 @@
 #include <utility>
 #include <vector>
 #include <cmath>
+#include <map>
 
 using namespace std;
 typedef std::pair<ulong,ulong> PrimePower;
 typedef std::vector<PrimePower> vPP;  // describes the prime powers of a factorial
-	
+typedef std::map<PrimePower, ulong> mPP	// map Primepower to count of geometric triangles (progressions)
 int main(int argc, char **argv)
 {
 	// Setup test data
@@ -29,14 +30,14 @@ int main(int argc, char **argv)
 		ulong count = 0;
 		PrimePower pp = *it;
 		ulong denom = pp.first;		// defines the denominator
-		ulong power = pp.second/2;	// integer divide by 2 gives loop count
-		while(power > 0){
+		ulong loops = pp.second/2;	// integer divide by 2 gives loop count
+		while(loops){
 			limit = (ulong)floor(denom * phi);
 			count += limit - denom;
 			denom *= pp.first;
-			power /= 2;			
+			--loops;			
 		}
-		cout << pp.first << "  " << pp.second << " " << count << endl;
+		cout << pp.first << "  " << pp.second << "  count:" << count << endl;
 	}
 	return 0;
 }
