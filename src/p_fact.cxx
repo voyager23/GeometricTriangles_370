@@ -52,5 +52,6 @@ int main(int argc, char **argv)
 		//			e.g 25 * phi = 40.45 => 40 - 25 = 15 possible sequences
 			
 	}
+    cout << "highest prime: " << primes.back() << endl;
 
 }
