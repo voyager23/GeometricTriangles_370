@@ -102,7 +102,7 @@ bool cmp_PrimePowers(PrimePower &ref, PrimePower &query){
 }
 
 void prt_pfofn(PfactOfN &pf){
-	for(auto pp = pf.begin(); pp != pf.end(); ++pp) printf("{%u, %u} ", pp->first, pp->second);
+	for(auto pp = pf.begin(); pp != pf.end(); ++pp) printf("{%lu, %lu} ", pp->first, pp->second);
 	NL;
 }
 

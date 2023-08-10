@@ -3,6 +3,10 @@ FLAGS =  -Wfatal-errors -Wall -Wno-unused-variable
 FLAGS += -std=c++20
 FLAGS += -g
 
+	
+csoln : c_soln.cxx toolbox.o Makefile
+	g++ c_soln.cxx toolbox.o $(FLAGS) -o ./csoln
+
 pfact : p_fact.cxx toolbox.o Makefile
 	g++ p_fact.cxx toolbox.o $(FLAGS) -o ./pfact
 	
