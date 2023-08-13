@@ -57,30 +57,45 @@ int main(int argc, char **argv)
 	const double phi = 1.61803398874989;
     std::vector<ul> primes;
 	PfactN pfn;	// vector of std::pair< (uint)prime, (uint)power> 
-    SofE(primes,1000001);
+    SofE(primes,3);
 		// cout << "highest prime: " << primes.back() << endl;
 	std::vector<ulong> exp={2,4,6,8,10};
 	std::map<PrimePower,ulong> mpp;	// map primepower to sequence count
-    ulong count, limit;
+    ulong count, limit; 
     
-    // setup primepower map
-	for(ulong &i : primes){
-		for(ulong &j : exp){
-			count = 0;
-			ulong denom = i;		// defines the denominator
-			ulong loops = j/2;		// integer divide by 2 gives loop count
-			while(loops){
-				limit = (ulong)floor(denom * phi);
-				count += (limit - denom);
+    // Version 2: primepower map
+    for(ulong &i : primes) {
+		for(ulong &j : exp) {
+			ulong denom = i;
+			ulong power = j;
+			while(power > 1){
 				denom *= i;
-				--loops;			
+				power /= 2;
 			}
-			// ???DEBUG COUNT + 1????
+			limit = (ulong)floor(denom * phi);
+			count = limit - denom + 1;
 			mpp.emplace(make_pair(i,j),count);
-			// -----			
 		}
-		NO_OP;
 	}
+    
+    NO_OP;
+    
+    //~ // setup primepower map
+	//~ for(ulong &i : primes){
+		//~ for(ulong &j : exp){
+			//~ count = 0;
+			//~ ulong denom = i;		// defines the denominator
+			//~ ulong loops = j/2;		// integer divide by 2 gives loop count
+			//~ while(loops){
+				//~ limit = (ulong)floor(denom * phi);
+				//~ count += (limit - denom);
+				//~ denom *= i;
+				//~ --loops;			
+			//~ }
+			//~ mpp.emplace(make_pair(i,j),count);
+		//~ }
+		//~ NO_OP;
+	//~ }
 	
 	// scan forward from n=4 to find total sequences
 	ulong n = 1620, local, global = 0;
