@@ -10,6 +10,7 @@
 #include <vector>
 #include <cmath>
 #include <map>
+#include <boost/rational.hpp>
 
 using namespace std;
 typedef std::pair<ulong,ulong> PrimePower;
@@ -31,6 +32,13 @@ const double phi = 1.61803398874989;	// Golden ratio
 
 int main(int argc, char **argv)
 {
+	//~ boost::rational<ulong> foo(403,243);
+	//~ boost::rational<ulong> bar(4050);
+	//~ std::cout << (foo * bar) << endl;
+	//~ std::cout << (double)(foo.numerator()) << endl;
+	//~ std::cout << (foo.denominator()) << endl;
+	//~ return 0;
+	
 	std::vector<ulong> primes={2,3,5,7,11};
 	std::vector<ulong> exp={2,4,6,8,10};
 	std::map<PrimePower,ulong> mpp;	// map primepower to sequence count

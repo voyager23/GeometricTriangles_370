@@ -78,10 +78,10 @@ void generate_factorials(std::vector<ul> &factorials){
 	}
 }
 		
-void generate_descriptors(std::vector<ul> &primes, ul n, PfactOfN &PfactOfN){
+void generate_descriptors(std::vector<ul> &primes, ul n, PfactN &PfactN){
 	// Generates a vector of descriptors for integer n. Each element is a pair<prime, power>
 	PrimePower temp;
-	PfactOfN.clear();
+	PfactN.clear();
 	for(auto i = primes.begin(); i != primes.end(); ++i){
 		ul p = *i;
 		if(p > n) break;
@@ -91,7 +91,7 @@ void generate_descriptors(std::vector<ul> &primes, ul n, PfactOfN &PfactOfN){
 			n /= p;
 		}
 		// save <prime,power> to vector
-		if(temp.second > 0) PfactOfN.push_back(temp);
+		if(temp.second > 0) PfactN.push_back(temp);
 	}
 }
 
@@ -101,14 +101,14 @@ bool cmp_PrimePowers(PrimePower &ref, PrimePower &query){
 	return ((ref.first==query.first)&&(ref.second>=query.second));
 }
 
-void prt_pfofn(PfactOfN &pf){
+void prt_pfofn(PfactN &pf){
 	for(auto pp = pf.begin(); pp != pf.end(); ++pp) printf("{%lu, %lu} ", pp->first, pp->second);
 	NL;
 }
 
-uint find_smallest_factorial(std::vector<PfactOfN> &db, PfactOfN &query){
+uint find_smallest_factorial(std::vector<PfactN> &db, PfactN &query){
 	uint row,col;
-	PfactOfN::iterator i_col, i_pp;
+	PfactN::iterator i_col, i_pp;
 	bool solution;
 	PrimePower hi_prime = query.back();
 	// find the starting row,col in database
@@ -255,7 +255,7 @@ int main(void) {
     
     SofE(primes,n+2);
 	std::map<PrimePower, ul> cache;
-	PfactOfN pfn;	// vector of prime/powers
+	PfactN pfn;	// vector of prime/powers
 	ul sum = 0;
 	for(ul m = 2; m <= n; ++m){
 		generate_descriptors(primes, m, pfn); // clears pfn on entry
