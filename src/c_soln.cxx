@@ -68,9 +68,10 @@ int main(int argc, char **argv)
 		for(ulong &j : exp) {
 			ulong denom = i;
 			ulong power = j;
-			while(power > 1){
+			power -= 2;
+			while(power > 0){
 				denom *= i;
-				power /= 2;
+				power -= 2;
 			}
 			limit = (ulong)floor(denom * phi);
 			count = limit - denom + 1;
