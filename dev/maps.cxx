@@ -30,8 +30,23 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
+	// Source data
 	vector<ulong> primes = {2,3,5,7,11,13,17,19};
 	vector<ulong> exp = {2,4,6,8,10,12};
+	// Containers
+	map<ulong, vector<ulong>> datamap;
+	for(ulong p : primes){
+		datamap.emplace(p,vector<ulong>{});
+	}
+	
+	// Test code
+	auto r = datamap.find(19);
+	
+	if (r != datamap.end()){
+		cout << r->first << endl;
+	}
+	
+	int foo = 0;
 	
 	return 0;
 }
