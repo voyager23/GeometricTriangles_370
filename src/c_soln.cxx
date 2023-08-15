@@ -29,6 +29,7 @@
 #include <map>
 #include "../inc/toolbox.hxx"
 #include <boost/rational.hpp>
+// ULONG_MAX 18,446,744,073,709,551,615   {18*10^18}
 using namespace std;
 
 // Outline
@@ -53,13 +54,18 @@ using namespace std;
 
 int main(int argc, char **argv)
 {
+	std::cout << sizeof(ulong) << endl;
+	std::cout << sizeof(long long) << endl;
+	std::cout << ULONG_MAX << endl;
+	
+	exit(0);
 	const ulong maxPerim = 1000000;
 	const double phi = 1.61803398874989;
     std::vector<ul> primes;
 	PfactN pfn;	// vector of std::pair< (uint)prime, (uint)power> 
-    SofE(primes,3);
+    SofE(primes,7);
 		// cout << "highest prime: " << primes.back() << endl;
-	std::vector<ulong> exp={2,4,6,8,10};
+	std::vector<ulong> exp={2,4,6,8,10,12,14};
 	std::map<PrimePower,ulong> mpp;	// map primepower to sequence count
     ulong count, limit; 
     
@@ -99,7 +105,10 @@ int main(int argc, char **argv)
 	//~ }
 	
 	// scan forward from n=4 to find total sequences
-	ulong n = 1620, local, global = 0;
+	
+	const ulong DBN = 1620;	// DEBUG CONSTANT
+	
+	ulong n = DBN, local, global = 0;
 	while(true){
 		local = 0;
 		// get prime powers for n
@@ -114,7 +123,13 @@ int main(int argc, char **argv)
 			//		look up in map
 			auto j = mpp.find(temp);
 			if(j != mpp.end()) {
+				local = 0;
 				cout << "found" << endl;
+				while(temp.second > 1){
+					local += j->second;
+					temp.second -= 1;
+					// find new value temp
+				}
 				local += j->second;
 			}
 			//		if found 
@@ -128,7 +143,7 @@ int main(int argc, char **argv)
 			//	next n
 		}
 		global += local;
-		if(++n > 1620) break;	
+		if(++n > DBN) break;	
 	}
 	cout << global << endl;
 
