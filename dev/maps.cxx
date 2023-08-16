@@ -28,9 +28,11 @@
 #include <cmath>
 
 using namespace std;
+// Typedefs
+typedef map<ulong,vector<ulong>> DataMap;	
 
-void prt_map_vector(map<ulong, vector<ulong>>);
-void prt_map_vector(map<ulong, vector<ulong>> mpp){
+void prt_map_vector(DataMap);
+void prt_map_vector(DataMap mpp){
 	for(const auto& k : mpp){
 		cout<<k.first<<" - ";
 		for(const auto& v : k.second){
@@ -40,15 +42,20 @@ void prt_map_vector(map<ulong, vector<ulong>> mpp){
 	}
 }
 
+
+#define NO_OP int foo = 0
+
 int main(int argc, char **argv)
 {
+
 	// Source data
 	const ulong maxPerim = 1000000;
 	const double phi = 1.61803398874989;
-	vector<ulong> primes = {2,3,5,7,11,13,17,19};
-	vector<ulong> exp = {2,4,6,8,10,12};
+	vector<ulong> primes = {2,3,5,7,11,13,17,19,23,29,31};
+	vector<ulong> exp = {2,4,6,8,10,12,14};
 	// Containers
-	map<ulong, vector<ulong>> datamap;
+	DataMap datamap;
+	DataMap countmap;
 	
 	// Load vectors
 	for(auto i : primes){
@@ -66,10 +73,21 @@ int main(int argc, char **argv)
 		}
 		datamap.emplace(i,tmp);
 	}
-	
-	int foo = 0;	// NO_OP
-	
+	NO_OP;
 	prt_map_vector(datamap);
+	countmap.clear();
+	for(const auto& k : datamap){
+		ulong seq_count = 0;
+		vector<ulong> tmp = {};			
+		for(auto v : k.second){
+			v += seq_count;
+			seq_count = v;
+			tmp.push_back(seq_count);
+		}
+		countmap.emplace(k.first,tmp);
+	}
+	cout<<endl;
+	prt_map_vector(countmap);
 	
 	return 0;
 }
