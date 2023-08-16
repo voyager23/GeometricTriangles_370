@@ -25,28 +25,51 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include <cmath>
 
 using namespace std;
+
+void prt_map_vector(map<ulong, vector<ulong>>);
+void prt_map_vector(map<ulong, vector<ulong>> mpp){
+	for(const auto& k : mpp){
+		cout<<k.first<<" - ";
+		for(const auto& v : k.second){
+			cout<<v<<" ";
+		}
+		cout<<endl;
+	}
+}
 
 int main(int argc, char **argv)
 {
 	// Source data
+	const ulong maxPerim = 1000000;
+	const double phi = 1.61803398874989;
 	vector<ulong> primes = {2,3,5,7,11,13,17,19};
 	vector<ulong> exp = {2,4,6,8,10,12};
 	// Containers
 	map<ulong, vector<ulong>> datamap;
-	for(ulong p : primes){
-		datamap.emplace(p,vector<ulong>{});
+	
+	// Load vectors
+	for(auto i : primes){
+		vector<ulong> tmp = {};
+		for(auto j : exp){
+			ulong den = i;
+			ulong pwr = j - 2;
+			while(pwr>0){
+				den *= i;
+				pwr -= 2;
+			}
+			ulong limit = (ulong)floor(den * phi);
+			ulong count = limit - den + 1;
+			tmp.push_back(count);			
+		}
+		datamap.emplace(i,tmp);
 	}
 	
-	// Test code
-	auto r = datamap.find(19);
+	int foo = 0;	// NO_OP
 	
-	if (r != datamap.end()){
-		cout << r->first << endl;
-	}
-	
-	int foo = 0;
+	prt_map_vector(datamap);
 	
 	return 0;
 }
