@@ -52,12 +52,15 @@ int main(int argc, char **argv)
 	// Source data
 	const ulong maxPerim = 1000000;
 	const double phi = 1.61803398874989;
-	vector<ulong> primes = {2,3,5,7,11,13,17,19,23,29,31};
 	vector<ulong> exp = {2,4,6,8,10,12,14,16,18,20};
 	// Containers
 	DataMap datamap;
 	DataMap countmap;
 	DataMap maxperimmap;
+	// Calculate primes vector
+    std::vector<ulong> primes;
+    SofE(primes,333333);
+	cout << "highest prime: " << primes.back() << endl;
 	
 	// Load vectors
 	datamap.clear();
@@ -117,6 +120,7 @@ int main(int argc, char **argv)
 	//		# end for each primepower
 	//	# end for each object number
 	//	
+	
 	
 	return 0;
 }
